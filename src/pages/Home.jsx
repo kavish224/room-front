@@ -6,8 +6,6 @@ const Home = () => {
   return (
     <div className="bg-white min-h-screen text-[#2D3A45]">
       <Navbar />
-
-      {/* Hero Section */}
       <section className="bg-[#2D3A45] text-white py-20 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
           Find Your Perfect Room <br /> Without the Hassle
@@ -32,17 +30,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 bg-white text-[#2D3A45]">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {[
             {
               title: "✅ Verified Listings",
               desc: "Each property goes through a thorough verification process.",
-            },
-            {
-              title: "💸 Zero Brokerage",
-              desc: "Say goodbye to brokers. Speak directly with property owners.",
             },
             {
               title: "📱 Instant Communication",
@@ -59,8 +52,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      {/* Call to Action */}
+      
       <section className="bg-[#2D3A45] text-white py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-4">Start Your Journey Today</h2>
         <p className="mb-6 text-white/90">
