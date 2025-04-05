@@ -131,7 +131,6 @@ const Register = () => {
             className="w-full border p-2 rounded"
           />
 
-          {/* Role Selection */}
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2">
               <input
@@ -155,7 +154,6 @@ const Register = () => {
             </label>
           </div>
 
-          {/* OTP Handling */}
           {otpSent && !isOtpVerified && (
             <>
               <input
@@ -187,7 +185,6 @@ const Register = () => {
             </button>
           )}
 
-          {/* Final Submit */}
           {isOtpVerified && (
             <button
               type="submit"

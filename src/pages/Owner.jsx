@@ -12,7 +12,7 @@ const Owners = () => {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2D3A45]">
       <Navbar />
       <div className="max-w-5xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-bold mb-8">📊 Owners Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-8">Owners Dashboard</h1>
 
         <div className="bg-white shadow-md rounded-xl overflow-hidden">
           <table className="min-w-full table-auto text-left">
@@ -30,11 +30,10 @@ const Owners = () => {
                   <td className="px-6 py-4">{owner.phone}</td>
                   <td className="px-6 py-4">
                     <span
-                      className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        owner.status === "Active"
+                      className={`px-3 py-1 rounded-full text-sm font-semibold ${owner.status === "Active"
                           ? "bg-green-100 text-green-700"
                           : "bg-gray-200 text-gray-600"
-                      }`}
+                        }`}
                     >
                       {owner.status}
                     </span>
@@ -44,10 +43,6 @@ const Owners = () => {
             </tbody>
           </table>
         </div>
-
-        <p className="text-sm text-gray-500 mt-6">
-          * This is sample data. Integrate backend to show real-time stats.
-        </p>
       </div>
     </div>
   );

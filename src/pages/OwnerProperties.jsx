@@ -12,7 +12,7 @@ const OwnerProperties = () => {
     <div className="bg-[#f8f9fa] min-h-screen text-[#2D3A45]">
       <Navbar />
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold mb-6">🏠 Your Listed Properties</h2>
+        <h2 className="text-3xl font-bold mb-6">Your Listed Properties</h2>
         <ul className="space-y-4">
           {ownerProps.map((property) => (
             <li

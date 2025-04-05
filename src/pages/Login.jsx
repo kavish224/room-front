@@ -46,7 +46,7 @@ const Login = () => {
       <Navbar />
       <div className="flex justify-center items-center px-6 py-20">
         <div className="bg-white shadow-lg rounded-xl max-w-md w-full p-8">
-          <h2 className="text-2xl font-bold text-center mb-6">🔐 Login</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -69,7 +69,7 @@ const Login = () => {
               disabled={loading}
               className="w-full bg-[#FF6B6B] text-white py-2 rounded-lg font-semibold hover:bg-[#fa5252] transition disabled:opacity-50"
             >
-              {loading ? "Logging in..." : "🔓 Login"}
+              {loading ? "Logging in..." : "Login"}
             </button>
           </form>
 

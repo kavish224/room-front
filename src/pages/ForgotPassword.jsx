@@ -64,7 +64,7 @@ const ForgotPassword = () => {
       <div className="flex justify-center items-center px-6 py-20">
         <div className="bg-white shadow-lg rounded-xl max-w-md w-full p-8">
           <h2 className="text-2xl font-bold text-center mb-6">
-            {step === 1 ? "🔐 Forgot Password" : "🔄 Reset Your Password"}
+            {step === 1 ? "Forgot Password" : "Reset Your Password"}
           </h2>
 
           {step === 1 ? (
@@ -81,7 +81,7 @@ const ForgotPassword = () => {
                 type="submit"
                 className="w-full bg-[#FF6B6B] text-white py-2 rounded-lg font-semibold hover:bg-[#fa5252] transition"
               >
-                📧 Send OTP
+                Send OTP
               </button>
             </form>
           ) : (
@@ -106,7 +106,7 @@ const ForgotPassword = () => {
                 type="submit"
                 className="w-full bg-[#FF6B6B] text-white py-2 rounded-lg font-semibold hover:bg-[#fa5252] transition"
               >
-                🔐 Reset Password
+                Reset Password
               </button>
             </form>
           )}
@@ -116,7 +116,7 @@ const ForgotPassword = () => {
               to="/login"
               className="text-[#FF6B6B] hover:underline text-sm"
             >
-              ⬅ Back to Login
+              Back to Login
             </Link>
           </div>
         </div>

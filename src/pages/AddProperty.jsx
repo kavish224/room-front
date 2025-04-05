@@ -31,7 +31,7 @@ const AddProperty = () => {
       <Navbar />
       <div className="max-w-2xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          🏡 Add New Property
+          Add New Property
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -121,7 +121,7 @@ const AddProperty = () => {
             type="submit"
             className="bg-[#FF6B6B] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#fa5252] transition"
           >
-            ➕ Submit Property
+            Submit Property
           </button>
         </form>
       </div>
