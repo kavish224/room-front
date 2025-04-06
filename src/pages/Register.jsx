@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -93,119 +94,122 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container bg-gray-50 min-h-screen flex items-center justify-center p-6">
-      <div className="login-form bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
+    <>
+      <Navbar />
+      <div className="login-container bg-gray-50 min-h-screen flex items-center justify-center py-6">
+        <div className="login-form bg-white p-8 rounded shadow-md w-full max-w-md">
+          <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
-            className="w-full border p-2 rounded"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            required
-            className="w-full border p-2 rounded"
-          />
-          <input
-            type="text"
-            placeholder="Mobile No"
-            value={formData.mobile}
-            onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-            required
-            className="w-full border p-2 rounded"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            required
-            className="w-full border p-2 rounded"
-          />
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              placeholder="Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+              className="w-full border p-2 rounded"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+              className="w-full border p-2 rounded"
+            />
+            <input
+              type="text"
+              placeholder="Mobile No"
+              value={formData.mobile}
+              onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+              required
+              className="w-full border p-2 rounded"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              required
+              className="w-full border p-2 rounded"
+            />
 
-          <div className="flex items-center gap-4">
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="role"
-                value="Broker"
-                checked={formData.role === "Broker"}
-                onChange={() => handleRoleChange("Broker")}
-              />
-              Broker
-            </label>
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                name="role"
-                value="User"
-                checked={formData.role === "User"}
-                onChange={() => handleRoleChange("User")}
-              />
-              User
-            </label>
-          </div>
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="Broker"
+                  checked={formData.role === "Broker"}
+                  onChange={() => handleRoleChange("Broker")}
+                />
+                Broker
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="User"
+                  checked={formData.role === "User"}
+                  onChange={() => handleRoleChange("User")}
+                />
+                User
+              </label>
+            </div>
 
-          {otpSent && !isOtpVerified && (
-            <>
-              <input
-                type="text"
-                placeholder="Enter OTP"
-                value={otp}
-                onChange={(e) => setOtp(e.target.value)}
-                className="w-full border p-2 rounded"
-              />
+            {otpSent && !isOtpVerified && (
+              <>
+                <input
+                  type="text"
+                  placeholder="Enter OTP"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  className="w-full border p-2 rounded"
+                />
+                <button
+                  type="button"
+                  className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+                  onClick={verifyOtp}
+                  disabled={loadingVerify}
+                >
+                  {loadingVerify ? "Verifying..." : "Verify OTP"}
+                </button>
+              </>
+            )}
+
+            {!otpSent && (
               <button
                 type="button"
-                className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
-                onClick={verifyOtp}
-                disabled={loadingVerify}
+                className="w-full bg-[#FF6B6B] text-white py-2 rounded hover:bg-red-500"
+                onClick={sendOtp}
+                disabled={loadingOtp}
               >
-                {loadingVerify ? "Verifying..." : "Verify OTP"}
+                {loadingOtp ? "Sending..." : "Send OTP to Email"}
               </button>
-            </>
-          )}
+            )}
 
-          {!otpSent && (
-            <button
-              type="button"
-              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-              onClick={sendOtp}
-              disabled={loadingOtp}
+            {isOtpVerified && (
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+              >
+                Register
+              </button>
+            )}
+          </form>
+
+          <div className="text-center mt-4 text-sm">
+            Already have an account?{" "}
+            <span
+              className="text-[#FF6B6B] cursor-pointer"
+              onClick={() => navigate("/")}
             >
-              {loadingOtp ? "Sending..." : "Send OTP to Email"}
-            </button>
-          )}
-
-          {isOtpVerified && (
-            <button
-              type="submit"
-              className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
-            >
-              Register
-            </button>
-          )}
-        </form>
-
-        <div className="text-center mt-4 text-sm">
-          Already have an account?{" "}
-          <span
-            className="text-blue-600 cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            Login here
-          </span>
+              Login here
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
