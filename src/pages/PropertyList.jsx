@@ -3,8 +3,20 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar"; // Make sure this is the correct path
 
 const properties = [
-  { id: 1, address: "CG Road, Ahmedabad", gender: "Boys", rent: "₹6,000" },
-  { id: 2, address: "Navrangpura, Ahmedabad", gender: "Girls", rent: "₹5,500" },
+  {
+    id: 1,
+    address: "CG Road, Ahmedabad",
+    gender: "Boys",
+    rent: "₹6,000",
+    image: "https://res.cloudinary.com/dw1s3qv0u/image/upload/v1722051309/vxvjfdnayj60cek9jjqj.jpg",
+  },
+  {
+    id: 2,
+    address: "Navrangpura, Ahmedabad",
+    gender: "Girls",
+    rent: "₹5,500",
+    image: "https://res.cloudinary.com/dw1s3qv0u/image/upload/v1722051309/vxvjfdnayj60cek9jjqj.jpg",
+  },
 ];
 
 const PropertyList = () => {
@@ -21,6 +33,11 @@ const PropertyList = () => {
               to={`/properties/${property.id}`}
               className="block bg-white p-5 rounded-xl shadow hover:shadow-lg transition border border-gray-200"
             >
+              <img
+                src={property.image}
+                alt={property.address}
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
               <h3 className="text-xl font-semibold text-[#FF6B6B] mb-1">{property.address}</h3>
               <p className="text-sm text-gray-700 mb-1">{property.gender} only</p>
               <p className="text-green-700 font-medium">{property.rent}</p>
